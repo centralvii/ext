@@ -14,11 +14,14 @@ function removeDarkMode() {
     });
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.darkMode) {
-        applyDarkMode();
-    } else {
-        removeDarkMode();
+// Listen for storage changes
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    if (namespace === 'sync' && changes.darkMode) {
+        if (changes.darkMode.newValue) {
+            applyDarkMode();
+        } else {
+            removeDarkMode();
+        }
     }
 });
 

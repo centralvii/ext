@@ -6,13 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         toggle.checked = data.darkMode;
     });
 
-    // Save the state and send a message to the content script
+    // Save the state
     toggle.addEventListener('change', () => {
         const darkMode = toggle.checked;
         chrome.storage.sync.set({ darkMode });
-
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            chrome.tabs.sendMessage(tabs[0].id, { darkMode });
-        });
     });
 });
