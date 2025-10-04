@@ -1,12 +1,15 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Dark Theme Extension",
     "version": "1.0",
     "description": "Changes the color scheme of a page from light to dark.",
-    "permissions": ["activeTab", "scripting", "storage"],
-    "action": {
-        "default_title": "Toggle Dark Mode",
+    "permissions": ["activeTab", "storage", "<all_urls>"],
+    "browser_action": {
         "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
     },
     "content_scripts": [
         {

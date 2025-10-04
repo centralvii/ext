@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         toggle.checked = data.darkMode;
     });
 
-    // Save the state
+    // Save the state and send a message to the background script
     toggle.addEventListener('change', () => {
         const darkMode = toggle.checked;
         chrome.storage.sync.set({ darkMode });
+        chrome.runtime.sendMessage({ darkMode });
     });
 });
