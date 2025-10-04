@@ -91,7 +91,7 @@ function removeDarkMode() {
 }
 
 // Listen for messages from the background script
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.darkMode) {
         applyDarkMode();
     } else {
@@ -100,7 +100,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Apply on initial load
-chrome.storage.sync.get('darkMode', (data) => {
+chrome.storage.sync.get('darkMode', function (data) {
     if (data.darkMode) {
         applyDarkMode();
     }

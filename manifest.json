@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Dark Theme Extension",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Changes the color scheme of a page from light to dark.",
     "permissions": ["activeTab", "storage", "<all_urls>"],
     "browser_action": {
